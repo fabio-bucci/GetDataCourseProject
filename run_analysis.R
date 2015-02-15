@@ -1,9 +1,12 @@
+# This function prepare test and train data sets, reading the data file, reading the subject file, reading the activity file and 
+# properly nameing all variables with descriptive name
 prepareDataset <- function(type,columnNames,activityLabels){
     if(type != 'train' && type != 'test') {
         stop("Expected train or test dataset")
     }
     ## Read the data and appropriately labels the data set with descriptive variable names.
-    data <- read.table(paste('./UCI HAR Dataset/',type,'/X_',type,'.txt', sep = ""), header = FALSE, col.names=columnNames$colName)
+    data <- read.table(paste('./UCI HAR Dataset/',type,'/X_',type,'.txt', sep = ""), header = FALSE)
+    names(data) <- columnNames$colName
     ## Read subjects file
     subjects <- read.table(paste('./UCI HAR Dataset/',type,'/subject_',type,'.txt', sep = ""), header = FALSE, col.names = "subject")
     ## Uses descriptive activity names to name the activities in the data set
@@ -41,7 +44,7 @@ allData <- rbind(trainData,testData)
 
 ### 2. Extracts only the measurements on the mean and standard deviation for 
 ### each measurement. 
-
+# grep("*-mean\\(\\)*|*-std\\(\\)*",names(allData), value = TRUE)
 
 ### 4. Appropriately labels the data set with descriptive variable names. 
 
