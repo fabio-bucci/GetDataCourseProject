@@ -4,9 +4,9 @@ prepareDataset <- function(type,columnNames,activityLabels){
     if(type != 'train' && type != 'test') {
         stop("Expected train or test dataset")
     }
-    # Read the data and appropriately labels the data set with descriptive variable names.
+    # Read the data
     data <- read.table(paste('./UCI HAR Dataset/',type,'/X_',type,'.txt', sep = ""), header = FALSE)
-    # Set the variable names
+    # Label the data with variable names
     names(data) <- columnNames$colName
     # Read subjects file
     subjects <- read.table(paste('./UCI HAR Dataset/',type,'/subject_',type,'.txt', sep = ""), header = FALSE, col.names = "subject")
@@ -43,11 +43,15 @@ allData <- rbind(trainData,testData)
 ### Extracts only the measurements on the mean and standard deviation for 
 ### each measurement. 
 
-# Select all columns representing mena and standard deviation values based on 
+# Select all columns representing mean and standard deviation values based on 
 # the dataset variables naming convention, plus the activity and subject columns
 columnSelection <- c(grep("*-mean\\(\\)*|*-std\\(\\)*",names(allData), value = TRUE),"activity","subject")
 allDataMeanStd <- allData[,names(allData) %in% columnSelection]
  
 ### From the data set in step 4, creates a second, independent tidy data set with 
 ### the average of each variable for each activity and each subject.
+library(dplyr)
+res <- allDataMeanStd %>% group_by(activity,subject) %>% summarise_each(funs(mean))
 
+# Export tidy data set
+# write.table(res,"tidy_dataset.txt",row.name = FALSE)
