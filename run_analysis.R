@@ -47,7 +47,7 @@ allData <- rbind(trainData,testData)
 # the dataset variables naming convention, plus the activity and subject columns
 columnSelection <- c(grep("*-mean\\(\\)*|*-std\\(\\)*",names(allData), value = TRUE),"activity","subject")
 allDataMeanStd <- allData[,names(allData) %in% columnSelection]
- 
+
 ### From the data set in step 4, creates a second, independent tidy data set with 
 ### the average of each variable for each activity and each subject.
 library(dplyr)
