@@ -1,5 +1,5 @@
-## This function prepare test and train data sets, reading the data file, reading the subject file, reading the activity file and 
-## properly nameing all variables with descriptive name
+## This function prepares test and train data sets reading the data file, reading the subject file, reading the activity file and 
+## properly naming all variables with descriptive names
 prepareDataset <- function(type,columnNames,activityLabels){
     if(type != 'train' && type != 'test') {
         stop("Expected train or test dataset")
@@ -53,5 +53,5 @@ allDataMeanStd <- allData[,names(allData) %in% columnSelection]
 library(dplyr)
 res <- allDataMeanStd %>% group_by(activity,subject) %>% summarise_each(funs(mean))
 
-# Export tidy data set
+# Export tidy data set for the assignment
 # write.table(res,"tidy_dataset.txt",row.name = FALSE)
