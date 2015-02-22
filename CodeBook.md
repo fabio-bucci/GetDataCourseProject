@@ -11,7 +11,8 @@ A description of the variable s in the final dataset is available in the followi
 
 
 ## Variables description
-**activity**  One of the six activities performed by the subject wearing a smartphone (Samsung Galaxy S II) on the waist when signals where recorded.
+### activity
+One of the six activities performed by the subject wearing a smartphone (Samsung Galaxy S II) on the waist when signals where recorded.
 Activities are:
 * WALKING
 * WALKING_UPSTAIRS
@@ -20,11 +21,13 @@ Activities are:
 * STANDING
 * LAYING 
 
-**subject** An identifier of the subject who carried out the experiment.
-The variable range is from 1 to 30
+### subject
+An identifier of the subject who carried out the experiment.
+The variable range is from 1 to 30.
 
 
-**other variables in the dataset** The data come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+### other variables in the dataset
+The data come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
 These signals were used to estimate variables of the feature vector for each pattern:  
@@ -33,7 +36,7 @@ The set of variables that were estimated from these signals are:
 * mean(): Mean value
 * std(): Standard deviation
 
-The values in this dataset represents the average value of each variable for each activity and each subject, and variable values are normalized and bounded within [-1,1].
+**The values in this dataset represent the average value of each variable for each activity and each subject, and variable values are normalized and bounded within [-1,1].**
 
 The complete list of the signals derived variables in the dataset is: 
 * tBodyAcc-mean()-X
